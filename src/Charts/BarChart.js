@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
-import { getOptions } from "../utils/chartUtils";
+import { getAverage, getOptions } from "../utils/chartUtils";
 
 const BarChart = ({ wineData }) => {
   const [alcohol, setAlcohol] = useState([]);
@@ -8,12 +8,11 @@ const BarChart = ({ wineData }) => {
 
   useEffect(() => {
     const alcoholArr = [];
-    const malicAcidArr = [];
+    const malicAcidArr = getAverage(wineData);
     wineData.map((data) => {
       alcoholArr.push(data["Alcohol"]);
-      malicAcidArr.push(data["Malic Acid"]);
     });
-    setAlcohol(alcoholArr);
+    setAlcohol([...new Set(alcoholArr)]);
     setMalicAcid(malicAcidArr);
   }, []);
 

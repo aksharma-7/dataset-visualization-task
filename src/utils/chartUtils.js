@@ -36,16 +36,24 @@ export const getOptions = (
     tooltip: {
       trigger: "axis",
     },
-    dataZoom: [
-      {
-        type: "inside",
-        start: 0,
-        end: 10,
-      },
-      {
-        start: 0,
-        end: 10,
-      },
-    ],
   };
+};
+
+export const getAverage = (data) => {
+  const malicAcid1 = data
+    .filter((obj) => obj.Alcohol === 1)
+    .map((obj) => obj["Malic Acid"]);
+  const malicAcid2 = data
+    .filter((obj) => obj.Alcohol === 2)
+    .map((obj) => obj["Malic Acid"]);
+  const malicAcid3 = data
+    .filter((obj) => obj.Alcohol === 3)
+    .map((obj) => obj["Malic Acid"]);
+  const avg1 =
+    malicAcid1.reduce((acc, val) => acc + val, 0) / malicAcid1.length;
+  const avg2 =
+    malicAcid2.reduce((acc, val) => acc + val, 0) / malicAcid2.length;
+  const avg3 =
+    malicAcid3.reduce((acc, val) => acc + val, 0) / malicAcid3.length;
+  return [avg1, avg2, avg3];
 };
