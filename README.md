@@ -15,4 +15,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ### Scatter Plot and Bar Graph
 
-[Scatter Plot and Bar Graph](https://github.com/aksharma-7/dataset-visualization-task/blob/master/media/charts.png)
+![Scatter Plot and Bar Graph](https://github.com/aksharma-7/dataset-visualization-task/blob/master/media/charts.png)
